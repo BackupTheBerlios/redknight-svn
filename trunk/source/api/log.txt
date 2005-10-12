@@ -1,0 +1,100 @@
+C:\Dev-Cpp\include\SDL_types.h(80,29): Incompatible types for * (boolean, int):
+                                          (sizeof(Uint8) == 1) * 2
+  To make bool and int types equivalent, use +boolint.
+C:\Dev-Cpp\include\SDL_types.h(81,29): Incompatible types for * (boolean, int):
+                                          (sizeof(Sint8) == 1) * 2
+C:\Dev-Cpp\include\SDL_types.h(82,30): Incompatible types for * (boolean, int):
+                                          (sizeof(Uint16) == 2) * 2
+C:\Dev-Cpp\include\SDL_types.h(83,30): Incompatible types for * (boolean, int):
+                                          (sizeof(Sint16) == 2) * 2
+C:\Dev-Cpp\include\SDL_types.h(84,30): Incompatible types for * (boolean, int):
+                                          (sizeof(Uint32) == 4) * 2
+C:\Dev-Cpp\include\SDL_types.h(85,30): Incompatible types for * (boolean, int):
+                                          (sizeof(Sint32) == 4) * 2
+C:\Dev-Cpp\include\SDL_types.h(86,30): Incompatible types for * (boolean, int):
+                                          (sizeof(Uint64) == 8) * 2
+C:\Dev-Cpp\include\SDL_types.h(87,30): Incompatible types for * (boolean, int):
+                                          (sizeof(Sint64) == 8) * 2
+C:\Dev-Cpp\include\SDL_types.h(103,28):
+    Incompatible types for * (boolean, int):
+    (sizeof(SDL_DUMMY_ENUM) == sizeof(int)) * 2
+hooks.c: (in function ctk_hook_add)
+hooks.c(19,13): Arrow access from possibly null pointer new_hook:
+                   new_hook->func
+  A possibly null pointer is dereferenced.  Value is either the result of a
+  function which may return null (in which case, code should check it is not
+  null), or a global, parameter or structure field declared with the null
+  qualifier. (Use -nullderef to inhibit warning)
+   hooks.c(18,16): Storage new_hook may become null
+hooks.c(20,5): Implicitly only storage new_hook->next (type struct CTK_HOOK *)
+                  not released before assignment: new_hook->next = NULL
+  A memory leak has been detected. Only-qualified storage is not released
+  before the last reference to it is lost. (Use -mustfreeonly to inhibit
+  warning)
+hooks.c(31,5): Clauses exit with hook_group->first referencing implicitly only
+                  storage in true branch, kept storage in false branch
+  The state of a variable is different depending on which branch is taken. This
+  means no annotation can sensibly be applied to the storage. (Use -branchstate
+  to inhibit warning)
+   hooks.c(30,10): Storage hook_group->first becomes kept
+hooks.c(33,35): Function returns with null storage derivable from parameter
+                   hook_group->first->next
+  A possibly null pointer is reachable from a parameter or global variable that
+  is not declared using a /*@null@*/ annotation. (Use -nullstate to inhibit
+  warning)
+   hooks.c(20,22): Storage hook_group->first->next becomes null
+hooks.c: (in function ctk_hook_remove)
+hooks.c(56,16): Implicitly only storage hook_group->first->prev (type struct
+    CTK_HOOK *) not released before assignment: hook_group->first->prev = NULL
+hooks.c(61,16): Implicitly only storage temp->prev->next (type struct CTK_HOOK
+                   *) not released before assignment: temp->prev->next = NULL
+hooks.c(63,16): Implicitly only storage temp->prev->next (type struct CTK_HOOK
+    *) not released before assignment: temp->prev->next = temp->next
+hooks.c(65,10): Clauses exit with temp->prev referencing implicitly only
+                   storage in true branch, kept storage in false branch
+   hooks.c(64,16): Storage temp->prev becomes kept
+hooks.c(65,10): Clauses exit with temp->next->prev referencing implicitly only
+                   storage in true branch, kept storage in false branch
+   hooks.c(64,16): Storage temp->next->prev becomes kept
+hooks.c(65,10): Clauses exit with temp->next referencing implicitly only
+                   storage in true branch, kept storage in false branch
+   hooks.c(63,16): Storage temp->next becomes kept
+hooks.c(65,10): Clauses exit with hook_group->first->next referencing
+    implicitly only storage in true branch, kept storage in false branch
+   hooks.c(63,16): Storage hook_group->first->next becomes kept
+hooks.c(65,10): Storage hook_group->first->prev->next->next is kept in one
+                   path, but live in another.
+   hooks.c(63,16): Storage hook_group->first->prev->next->next becomes kept
+hooks.c(65,10): Clauses exit with hook_group->first->prev referencing
+    implicitly only storage in true branch, kept storage in false branch
+   hooks.c(64,16): Storage hook_group->first->prev becomes kept
+hooks.c(66,5): Storage temp->next->next is kept in one path, but live in
+                  another.
+   hooks.c(63,16): Storage temp->next->next becomes kept
+hooks.c(68,10): Kept storage temp passed as only param: free (temp)
+  storage is transferred to a non-temporary reference after being passed as
+  keep parameter. The storage may be released or new aliases created. (Use
+  -kepttrans to inhibit warning)
+   hooks.c(63,16): Storage temp becomes kept
+hooks.c(70,14): Released storage hook_group->first reachable from parameter at
+                   return point
+  Memory is used after it has been released (either by passing as an only param
+  or assigning to an only global). (Use -usereleased to inhibit warning)
+   hooks.c(68,10): Storage hook_group->first released
+hooks.c: (in function ctk_hook_remove_all)
+hooks.c(82,15): Only storage f->prev (type struct CTK_HOOK *) derived from
+                   released storage is not released (memory leak): f
+  A storage leak due to incomplete deallocation of a structure or deep pointer
+  is suspected. Unshared storage that is reachable from a reference that is
+  being deallocated has not yet been deallocated. Splint assumes when an object
+  is passed as an out only void pointer that the outer object will be
+  deallocated, but the inner objects will not. (Use -compdestroy to inhibit
+  warning)
+hooks.c(82,15): Only storage f->next (type struct CTK_HOOK *) derived from
+                   released storage is not released (memory leak): f
+hooks.c(85,10): Implicitly temp storage hook_group passed as only param:
+                   free (hook_group)
+  Temp storage (associated with a formal parameter) is transferred to a
+  non-temporary reference. The storage may be released or new aliases created.
+  (Use -temptrans to inhibit warning)
+

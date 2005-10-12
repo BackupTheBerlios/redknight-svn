@@ -1,0 +1,54 @@
+# Project: Cavalier
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = ../source/api/log.o ../source/api/queue.o ../source/api/hooks.o ../source/hooks/connection.o ../source/hooks/timers.o ../actors.o ../elbot.o ../local.o ../config.o $(RES)
+LINKOBJ  = ../source/api/log.o ../source/api/queue.o ../source/api/hooks.o ../source/hooks/connection.o ../source/hooks/timers.o ../actors.o ../elbot.o ../local.o ../config.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib"  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/include/c++"  -I"C:/Dev-Cpp/include/c++/mingw32"  -I"C:/Dev-Cpp/include/c++/backward"  -I"C:/Dev-Cpp/include" 
+BIN  = cavalier.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before cavalier.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "cavalier.exe" $(LIBS)
+
+../source/api/log.o: ../source/api/log.c
+	$(CC) -c ../source/api/log.c -o ../source/api/log.o $(CFLAGS)
+
+../source/api/queue.o: ../source/api/queue.c
+	$(CC) -c ../source/api/queue.c -o ../source/api/queue.o $(CFLAGS)
+
+../source/api/hooks.o: ../source/api/hooks.c
+	$(CC) -c ../source/api/hooks.c -o ../source/api/hooks.o $(CFLAGS)
+
+../source/hooks/connection.o: ../source/hooks/connection.c
+	$(CC) -c ../source/hooks/connection.c -o ../source/hooks/connection.o $(CFLAGS)
+
+../source/hooks/timers.o: ../source/hooks/timers.c
+	$(CC) -c ../source/hooks/timers.c -o ../source/hooks/timers.o $(CFLAGS)
+
+../actors.o: ../actors.c
+	$(CC) -c ../actors.c -o ../actors.o $(CFLAGS)
+
+../elbot.o: ../elbot.c
+	$(CC) -c ../elbot.c -o ../elbot.o $(CFLAGS)
+
+../local.o: ../local.c
+	$(CC) -c ../local.c -o ../local.o $(CFLAGS)
+
+../config.o: ../config.c
+	$(CC) -c ../config.c -o ../config.o $(CFLAGS)
